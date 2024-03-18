@@ -1,0 +1,27 @@
+﻿<Window x:Class="ToDoListAssignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoListAssignment"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" ItemsSource="{Binding AllTodos}" Background="#FFEC7777">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding IsDone}" Content="{Binding Desc}"></CheckBox>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <TextBox x:Name="NewTodoTextBox" Width="150" Margin="10" Text="" Cursor="Arrow"/>
+            <Button Content="Add Todo" Click="AddTodoButton_clicked" Margin="10" Background="#FFEC7777"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
